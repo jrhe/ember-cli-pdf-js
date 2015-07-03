@@ -1,6 +1,26 @@
-# Ember-cli-pdf-js
+# Ember-cli-pdf-js 
 
-This README outlines the details of collaborating on this Ember addon.
+Wraps the pdf-js native javascript pdf viewer to display pdfs in an ember app.
+
+## Work in progress
+
+This addon is a work in progress and has a number of limitations currently (listeded below).
+
+## Installation
+`ember install ember-cli-pdf-js`
+
+## Usage
+
+```Handlebars
+  {{pdf-viewer src='mypdf.pdf'}}
+```
+
+## Limitations
+
+* Can't have multiple instances
+* No sensible hook to configure pdf-js yet
+* Viewer code isn't scoped to the component yet (window, document, hash stuff etc)
+* Viewer code hasn't been emberified making it hard to customise the viewer
 
 ## Installation
 
