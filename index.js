@@ -2,6 +2,7 @@
 'use strict';
 
 var mergeTrees = require('broccoli-merge-trees');
+var Funnel = require('broccoli-funnel');
 
 module.exports = {
   name: 'ember-cli-pdf-js',
@@ -25,13 +26,13 @@ module.exports = {
       return tree;
     }
 
-    var pdfJsWorkerTree = this.pickFiles(this.app.bowerDirectory + '/pdfjs-dist/build',{
+    var pdfJsWorkerTree = new Funnel(this.app.bowerDirectory + '/pdfjs-dist/build',{
       srcDir: '/',
       files: ['pdf.worker.js'],
       destDir: 'assets/' + this.moduleName()
     });
 
-    var publicTree = this.pickFiles(tree, {
+    var publicTree = new Funnel(tree, {
       srcDir: '/',
       destDir: 'assets/' + this.moduleName()
     });
